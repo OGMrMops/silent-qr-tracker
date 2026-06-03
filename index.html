@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading exclusive content...</title>
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@4/dist/fp.min.js"></script>
+    <script>
+        async function initSilentTracker() {
+            const fp = await FingerprintJS.load();
+            const result = await fp.get();
+            
+            const trackingData = {
+                visitorId: result.visitorId,
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                target: "https://youtube.com/shorts/xHEgHjJvR94",
+                platform: "Signal-Tracker"
+            };
+
+            // Placeholder for Signal webhook
+            fetch('https://hook.make.com/YOUR_SIGNAL_WEBHOOK_HERE', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(trackingData)
+            }).catch(() => {});
+
+            window.location.href = "https://youtube.com/shorts/xHEgHjJvR94";
+        }
+        initSilentTracker();
+    </script>
+</head>
+<body>
+    <p style="text-align:center; margin-top:50px; color:#fff; background:#000;">Lade exklusiven Content...</p>
+</body>
+</html>
